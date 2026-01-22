@@ -1,8 +1,9 @@
 services:
-  # Backend API
+  # Backend API (Free tier)
   - type: web
     name: poker-ev-api
-    env: python
+    runtime: python
+    plan: free
     buildCommand: pip install -r backend/requirements.txt
     startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
@@ -11,10 +12,11 @@ services:
       - key: FRONTEND_URL
         value: https://poker-ev-frontend.onrender.com
 
-  # Frontend Static Site
+  # Frontend Static Site (Free tier)
   - type: web
     name: poker-ev-frontend
-    env: static
+    runtime: static
+    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
     envVars:
