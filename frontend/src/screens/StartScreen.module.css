@@ -172,10 +172,12 @@
 
 .chips {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2rem;
   display: flex;
   gap: 1rem;
   opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .chip {
@@ -218,6 +220,38 @@
   .settingsButton {
     padding: 1rem 2rem;
     font-size: 1rem;
+  }
+
+  .chips {
+    display: none;
+  }
+}
+
+@media (max-height: 700px) {
+  .content {
+    gap: 1.5rem;
+  }
+
+  .cardFan {
+    height: 100px;
+    margin: 0;
+  }
+
+  .card {
+    width: 70px;
+    height: 100px;
+  }
+
+  .cardRank {
+    font-size: 1.8rem;
+  }
+
+  .cardSuit {
+    font-size: 1.5rem;
+  }
+
+  .chips {
+    display: none;
   }
 }
 
