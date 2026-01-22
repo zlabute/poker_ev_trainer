@@ -12,11 +12,10 @@ services:
       - key: FRONTEND_URL
         value: https://poker-ev-frontend.onrender.com
 
-  # Frontend Static Site (Free tier)
+  # Frontend Static Site (always free, no plan needed)
   - type: web
     name: poker-ev-frontend
     runtime: static
-    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
     envVars:
