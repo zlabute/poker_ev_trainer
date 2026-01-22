@@ -1,0 +1,223 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(0, 102, 204, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(0, 102, 204, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(26, 26, 46, 0.5) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  z-index: 1;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.titleSection {
+  text-align: center;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  margin-bottom: -0.5rem;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 60px rgba(0, 136, 255, 0.3);
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5em;
+  color: var(--accent-blue);
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.cardFan {
+  position: relative;
+  width: 200px;
+  height: 140px;
+  margin: 1rem 0;
+}
+
+.card {
+  position: absolute;
+  width: 90px;
+  height: 130px;
+  background: var(--card-front);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 136, 255, 0.1);
+  transition: transform var(--transition-medium);
+}
+
+.card:hover {
+  transform: translateY(-10px) !important;
+}
+
+.card1 {
+  left: 30px;
+  transform: rotate(-15deg);
+  z-index: 1;
+}
+
+.card2 {
+  right: 30px;
+  transform: rotate(15deg);
+  z-index: 2;
+}
+
+.cardRank {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--card-black);
+  font-family: var(--font-mono);
+}
+
+.cardSuit {
+  font-size: 2rem;
+  color: var(--card-black);
+}
+
+.cardSuit.red {
+  color: var(--card-red);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 280px;
+}
+
+.playButton,
+.settingsButton {
+  padding: 1.25rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  border-radius: 50px;
+  transition: all var(--transition-medium);
+  text-transform: uppercase;
+}
+
+.playButton {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #0066cc 100%);
+  color: var(--text-primary);
+  box-shadow: 
+    0 4px 20px rgba(0, 136, 255, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.playButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 8px 30px rgba(0, 136, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.playButton:active {
+  transform: translateY(-1px);
+}
+
+.settingsButton {
+  background: transparent;
+  color: var(--accent-blue);
+  border: 2px solid var(--accent-blue);
+}
+
+.settingsButton:hover {
+  background: rgba(0, 136, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 136, 255, 0.2);
+}
+
+.settingsButton:active {
+  transform: translateY(-1px);
+}
+
+.chips {
+  position: absolute;
+  bottom: 3rem;
+  display: flex;
+  gap: 1rem;
+  opacity: 0.6;
+}
+
+.chip {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px dashed rgba(255, 255, 255, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.chipRed {
+  background: var(--chip-red);
+  animation-delay: 0s;
+}
+
+.chipBlue {
+  background: var(--chip-blue);
+  animation-delay: 0.3s;
+}
+
+.chipGreen {
+  background: var(--chip-green);
+  animation-delay: 0.6s;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .buttons {
+    width: 240px;
+  }
+
+  .playButton,
+  .settingsButton {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+

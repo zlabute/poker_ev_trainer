@@ -1,0 +1,140 @@
+.tableContainer {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 10;
+  margin: 0 auto;
+}
+
+.table {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  right: 10%;
+  bottom: 15%;
+  background: linear-gradient(145deg, var(--table-border-light) 0%, var(--table-border) 100%);
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 4px rgba(139, 69, 19, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.tableInner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, var(--table-felt-light) 0%, var(--table-felt) 50%, #154524 100%);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.feltPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+  pointer-events: none;
+}
+
+.centerArea {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.potLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.15em;
+}
+
+.potValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.communityCards {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.emptyCardSlot {
+  width: 50px;
+  height: 70px;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+}
+
+.seatWrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .table {
+    padding: 8px;
+  }
+
+  .pot {
+    padding: 0.35rem 1rem;
+  }
+
+  .potValue {
+    font-size: 1rem;
+  }
+
+  .communityCards {
+    gap: 0.25rem;
+  }
+
+  .emptyCardSlot {
+    width: 36px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tableContainer {
+    aspect-ratio: 4 / 3;
+  }
+
+  .table {
+    top: 20%;
+    left: 5%;
+    right: 5%;
+    bottom: 20%;
+  }
+}
+

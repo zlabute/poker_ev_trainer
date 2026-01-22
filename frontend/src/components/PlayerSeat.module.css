@@ -1,0 +1,218 @@
+.seat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  position: relative;
+  transition: all var(--transition-medium);
+}
+
+.seat.folded {
+  opacity: 0.5;
+}
+
+.seat.eliminated {
+  opacity: 0.35;
+  filter: grayscale(80%);
+}
+
+.seat.active .infoBox {
+  box-shadow:
+    0 0 0 2px var(--accent-blue),
+    0 0 20px rgba(0, 136, 255, 0.4);
+}
+
+.positionChip {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.positionChip.d {
+  background: var(--chip-white);
+  color: var(--chip-black);
+}
+
+.positionChip.sb {
+  background: var(--chip-blue);
+  color: white;
+}
+
+.positionChip.bb {
+  background: var(--chip-red);
+  color: white;
+}
+
+.cardsTop,
+.cardsBottom {
+  display: flex;
+  gap: -8px;
+}
+
+.cardsTop {
+  margin-bottom: -4px;
+}
+
+.cardsBottom {
+  margin-top: -4px;
+}
+
+.cardsTop>*:nth-child(2) {
+  margin-left: -12px;
+}
+
+.cardsBottom>*:nth-child(2) {
+  margin-left: -12px;
+}
+
+.infoBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(15, 15, 24, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.4rem 0.6rem;
+  min-width: 90px;
+  position: relative;
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+}
+
+.avatar {
+  font-size: 1.1rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.name {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chips {
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+}
+
+.playerStyle {
+  font-size: 0.55rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: #00d4aa;
+  background: rgba(0, 212, 170, 0.15);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  margin-top: 0.1rem;
+  white-space: nowrap;
+}
+
+.turnIndicator {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 3px;
+  background: var(--accent-blue);
+  border-radius: 2px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.betChip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+  color: #1a1a1a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.foldedBadge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+}
+
+.eliminatedBadge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(80, 0, 0, 0.9);
+  color: #ff6666;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(255, 100, 100, 0.3);
+}
+
+@media (max-width: 768px) {
+  .infoBox {
+    min-width: 70px;
+    padding: 0.3rem 0.4rem;
+  }
+
+  .avatar {
+    font-size: 0.9rem;
+    width: 22px;
+    height: 22px;
+  }
+
+  .name {
+    font-size: 0.6rem;
+  }
+
+  .chips {
+    font-size: 0.7rem;
+  }
+
+  .positionChip {
+    width: 20px;
+    height: 20px;
+    font-size: 0.5rem;
+  }
+}
