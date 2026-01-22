@@ -202,7 +202,6 @@ export default function GameScreen() {
           availableActions={gameState.availableActions}
           currentBet={gameState.currentBet}
           playerBet={humanPlayer?.currentBet || 0}
-          playerChips={humanPlayer?.chips || 0}
           minRaise={gameState.minRaise}
           maxRaise={gameState.maxRaise}
           pot={gameState.pot}

@@ -6,7 +6,6 @@ interface ActionPanelProps {
   availableActions: ActionType[]
   currentBet: number
   playerBet: number
-  playerChips: number
   minRaise: number
   maxRaise: number
   pot: number
@@ -18,7 +17,6 @@ export default function ActionPanel({
   availableActions,
   currentBet,
   playerBet,
-  playerChips,
   minRaise,
   maxRaise,
   pot,
