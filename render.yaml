@@ -1,0 +1,26 @@
+services:
+  # Backend API
+  - type: web
+    name: poker-ev-api
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: FRONTEND_URL
+        value: https://poker-ev-frontend.onrender.com
+
+  # Frontend Static Site
+  - type: web
+    name: poker-ev-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://poker-ev-api.onrender.com/api
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

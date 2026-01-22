@@ -1,6 +1,7 @@
 import { GameState, GameSettings, ActionType, EVResult } from '../types'
 
-const API_BASE = '/api'
+// In production, use full URL to backend service; in dev, use proxy
+const API_BASE = import.meta.env.VITE_API_URL || '/api'
 
 interface ActionResponse {
   success: boolean
