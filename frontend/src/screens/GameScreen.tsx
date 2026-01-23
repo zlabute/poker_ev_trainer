@@ -100,6 +100,19 @@ export default function GameScreen() {
     }
   }, [gameState, showFeedback, processCPUTurns])
 
+  // Precompute equity when it's the human's turn
+  useEffect(() => {
+    if (!gameState || showFeedback || processingCPU) return
+
+    const humanPlayer = gameState.players.find(p => p.isHuman)
+    const isHumanTurn = gameState.currentPlayer === humanPlayer?.position
+
+    if (isHumanTurn && gameState.phase !== 'showdown' && gameState.phase !== 'waiting') {
+      // Trigger precomputation in background
+      api.precomputeEquity(gameState.id)
+    }
+  }, [gameState, showFeedback, processingCPU])
+
   const handleAction = async (action: ActionType, amount?: number) => {
     if (!gameState) return
 

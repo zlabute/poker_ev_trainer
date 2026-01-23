@@ -152,3 +152,12 @@ export async function deleteGame(gameId: string): Promise<void> {
   })
 }
 
+export async function precomputeEquity(gameId: string): Promise<void> {
+  // Fire and forget - don't wait for response
+  fetch(`${API_BASE}/game/${gameId}/precompute`, {
+    method: 'POST',
+  }).catch(() => {
+    // Ignore errors - this is a background optimization
+  })
+}
+

@@ -1,0 +1,44 @@
+# Files to exclude from Render deployment
+# This reduces build time and deployment size
+
+# Test files
+backend/tests/
+backend/run_tests.py
+backend/pytest.ini
+backend/requirements-dev.txt
+backend/.pytest_cache/
+
+# Development files
+backend/benchmark_equity.py
+*.md
+!README.md
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation (except README)
+docs/
+development_notes.md
+
+# Local environment
+.env.local
+.env.*.local
+venv/
+.venv/
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage/
+

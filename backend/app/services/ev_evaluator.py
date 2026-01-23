@@ -295,15 +295,19 @@ class EVEvaluator:
         phase: str,
         available_actions: List[ActionType],
         min_raise: int,
+        cached_equity: Optional[float] = None,
     ) -> dict:
         """Evaluate if the user's action was optimal."""
-        # Calculate equity once - this will be used consistently
-        equity = EVEvaluator.calculate_equity(
-            hole_cards, 
-            community_cards, 
-            num_opponents,
-            iterations=2000
-        )
+        # Use cached equity if available, otherwise calculate
+        if cached_equity is not None:
+            equity = cached_equity
+        else:
+            equity = EVEvaluator.calculate_equity(
+                hole_cards, 
+                community_cards, 
+                num_opponents,
+                iterations=2000
+            )
         
         bet_to_call = current_bet - player_bet
         pot_odds = EVEvaluator.calculate_pot_odds(bet_to_call, pot)
