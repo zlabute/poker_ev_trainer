@@ -1,5 +1,5 @@
 """
-Poker game management using PokerKit.
+Poker game management.
 """
 
 import uuid

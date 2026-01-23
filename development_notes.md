@@ -39,9 +39,9 @@ Technical implementation details and architecture decisions for the Poker EV Tra
 
 ## Key Design Decisions
 
-### 1. Custom Hand Evaluator vs PokerKit
+### 1. Custom Hand Evaluator
 
-Initially planned to use PokerKit's built-in hand evaluation, but implemented a custom `HandEvaluator` class for:
+Implemented a custom `HandEvaluator` class instead of using an external library (PokerKit) for:
 - Simpler integration with our game state
 - Full control over evaluation logic
 - Easier debugging and testing

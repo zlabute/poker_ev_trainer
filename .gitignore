@@ -69,3 +69,5 @@ htmlcov/
 # TypeScript
 *.tsbuildinfo
 
+# Benchmarks
+backend/benchmark_equity.py

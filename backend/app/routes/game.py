@@ -55,7 +55,7 @@ async def submit_action(game_id: str, action_request: ActionRequest):
     hole_cards = game.get_human_hole_cards()
     num_opponents = game.get_num_active_opponents()
     
-    # Evaluate the action using PokerKit
+    # Evaluate the action using EVEvaluator
     ev_result_dict = EVEvaluator.evaluate_user_action(
         user_action=action_request.action,
         user_amount=action_request.amount,
@@ -143,7 +143,7 @@ async def cpu_action(game_id: str):
         if p["id"] != current["id"] and not p["is_folded"] and p["is_active"]
     ])
     
-    # CPU decides action using PokerKit equity
+    # CPU decides action using EVEvaluator equity
     action, amount = CPUPlayer.decide_action(
         hole_cards=hole_cards,
         community_cards=game.community_cards,
