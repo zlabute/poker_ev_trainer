@@ -188,7 +188,8 @@ export default function GameScreen() {
   }
 
   const humanPlayer = gameState.players.find(p => p.isHuman)
-  const isHumanTurn = gameState.currentPlayer === humanPlayer?.position && !processingCPU
+  const isActivePhase = gameState.phase !== 'showdown' && gameState.phase !== 'waiting'
+  const isHumanTurn = gameState.currentPlayer === humanPlayer?.position && !processingCPU && isActivePhase
 
   return (
     <div className={styles.container}>
@@ -210,18 +211,27 @@ export default function GameScreen() {
         />
       </div>
 
-      <div className={styles.actionArea}>
-        <ActionPanel
-          availableActions={gameState.availableActions}
-          currentBet={gameState.currentBet}
-          playerBet={humanPlayer?.currentBet || 0}
-          minRaise={gameState.minRaise}
-          maxRaise={gameState.maxRaise}
-          pot={gameState.pot}
-          onAction={handleAction}
-          disabled={!isHumanTurn || showFeedback}
-        />
-      </div>
+      {isActivePhase ? (
+        <div className={styles.actionArea}>
+          <ActionPanel
+            availableActions={gameState.availableActions}
+            currentBet={gameState.currentBet}
+            playerBet={humanPlayer?.currentBet || 0}
+            minRaise={gameState.minRaise}
+            maxRaise={gameState.maxRaise}
+            pot={gameState.pot}
+            onAction={handleAction}
+            disabled={!isHumanTurn || showFeedback}
+          />
+        </div>
+      ) : (
+        <div className={styles.showdownMessage}>
+          <div className={styles.showdownContent}>
+            <h3>Showdown</h3>
+            <p>Revealing cards... Next hand starting soon</p>
+          </div>
+        </div>
+      )}
 
       <FeedbackOverlay
         result={feedback}

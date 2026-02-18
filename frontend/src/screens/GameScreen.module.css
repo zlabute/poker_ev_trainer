@@ -56,6 +56,47 @@
   z-index: 10;
 }
 
+.showdownMessage {
+  padding: 1rem 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showdownContent {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.1));
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  padding: 1.25rem 2.5rem;
+  text-align: center;
+  animation: showdownPulse 2s ease-in-out infinite;
+}
+
+.showdownContent h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.showdownContent p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@keyframes showdownPulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  }
+}
+
 .loading {
   min-height: 100vh;
   display: flex;
